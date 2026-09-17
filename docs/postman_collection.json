@@ -1,0 +1,61 @@
+{
+  "info": {
+    "name": "VAGMREACH API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:4000/api/v1" }],
+  "item": [
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "List products",
+          "request": { "method": "GET", "url": "{{baseUrl}}/products" }
+        },
+        {
+          "name": "Product detail",
+          "request": { "method": "GET", "url": "{{baseUrl}}/products/1" }
+        }
+      ]
+    },
+    {
+      "name": "Cart",
+      "item": [
+        {
+          "name": "Get cart",
+          "request": { "method": "GET", "url": "{{baseUrl}}/cart" }
+        },
+        {
+          "name": "Add to cart",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"productId\":1,\"quantity\":1}"
+            },
+            "url": "{{baseUrl}}/cart/items"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Shipping rates",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/shipping/rates?pincode=500033"
+      }
+    },
+    {
+      "name": "Activity live",
+      "request": { "method": "GET", "url": "{{baseUrl}}/activity/live" }
+    },
+    {
+      "name": "Track AWB",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/tracking/BLUEDART-88219034IN"
+      }
+    }
+  ]
+}

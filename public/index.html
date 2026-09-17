@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VAGMREACH | Luxury 1 Gram Gold Handcrafted Jewellery</title>
+  <meta name="description" content="VAGMREACH luxury gold jewellery — shop the catalog, insured shipping, and secure checkout.">
+  
+  <!-- Google Fonts: Cinzel & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              50: '#FDFBF7',
+              100: '#FBF6EB',
+              200: '#F4E8CB',
+              300: '#EAD5A3',
+              400: '#D4AF37',
+              500: '#D4AF37', /* Pure Royal Gold */
+              600: '#B89225',
+              700: '#947219',
+              800: '#755815',
+              900: '#5C4413',
+            },
+            cream: {
+              50: '#FFFCF7',
+              100: '#F7F1E8',
+              200: '#EDE4D4',
+              300: '#E0D4C0',
+              page: '#F4EDE3',
+            },
+            regal: {
+              900: '#2C261E',
+              800: '#3D3328',
+              700: '#5C5348',
+              600: '#7A6F62'
+            },
+            royal: {
+              950: '#040812',
+              900: '#0D2247',
+              800: '#112A52',
+              700: '#163562',
+              600: '#1A3F72',
+            }
+          },
+          fontFamily: {
+            cinzel: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFF0C8 0%, #D4AF37 50%, #947219 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-border-gradient {
+      border-image: linear-gradient(to bottom right, #D4AF37, #755815, #D4AF37) 1;
+    }
+    .gold-card-glow:hover {
+      box-shadow: 0 16px 40px -12px rgba(212, 175, 55, 0.45);
+    }
+    body {
+      background-color: #0D2247;
+      background-image:
+        radial-gradient(ellipse 120% 70% at 50% -15%, rgba(212, 175, 55, 0.12), transparent 55%),
+        radial-gradient(ellipse 55% 45% at 100% 40%, rgba(22, 48, 82, 0.35), transparent),
+        radial-gradient(ellipse 45% 40% at 0% 80%, rgba(13, 34, 71, 0.45), transparent),
+        linear-gradient(168deg, #163562 0%, #112a52 28%, #0D2247 55%, #040812 100%);
+      background-attachment: fixed;
+    }
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.02); }
+    }
+    .animate-live {
+      animation: pulse-subtle 2.5s infinite ease-in-out;
+    }
+    /* Custom luxury scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0D2247;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #755815;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4AF37;
+    }
+    :root {
+      --vgm-gold: #D4AF37;
+    }
+    /* Dark storefront: letters & icons use royal gold (#D4AF37) */
+    body.vgm-gold-ui {
+      color: var(--vgm-gold);
+    }
+    body.vgm-gold-ui svg {
+      color: var(--vgm-gold);
+    }
+    body.vgm-gold-ui :not([data-light-panel]):not([data-light-panel] *) {
+      color: var(--vgm-gold) !important;
+    }
+    body.vgm-gold-ui :not([data-light-panel]):not([data-light-panel] *) svg {
+      color: var(--vgm-gold) !important;
+      stroke: currentColor;
+    }
+    body.vgm-gold-ui .gold-gradient-text {
+      color: transparent !important;
+      -webkit-text-fill-color: transparent;
+    }
+    body.vgm-gold-ui #category-filters .filter-btn.active {
+      color: #0D2247 !important;
+      background-color: #D4AF37 !important;
+      border-color: #D4AF37 !important;
+    }
+    body.vgm-gold-ui #cart-counter {
+      color: #0D2247 !important;
+    }
+    [data-light-panel] {
+      color: #44403c;
+    }
+    [data-light-panel] .text-gold-300,
+    [data-light-panel] .text-gold-400 {
+      color: #755815 !important;
+    }
+    [data-light-panel] .product-weight-badge {
+      color: #5c4413 !important;
+    }
+    .site-header {
+      background-color: #0D2247;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .site-header.is-scrolled {
+      background-color: #0D2247;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+      border-bottom-color: rgba(212, 175, 55, 0.35);
+    }
+    .site-top-bar {
+      background-color: #0D2247;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+    .vagmreach-brand-logo {
+      display: block;
+      height: 3.25rem;
+      width: auto;
+      max-width: min(220px, 58vw);
+      object-fit: contain;
+      object-position: left center;
+      /* Transparent asset on #0D2247 — gold glow only, no blend wash-out */
+      filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5))
+        drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+    }
+    @media (min-width: 640px) {
+      .vagmreach-brand-logo {
+        height: 3.75rem;
+        max-width: 240px;
+      }
+    }
+    .vagmreach-brand-logo--footer {
+      height: 2.75rem;
+      max-width: 160px;
+      filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.45));
+    }
+    .vagmreach-brand-tagline {
+      font-size: 0.625rem;
+      line-height: 1.25;
+      letter-spacing: 0.03em;
+      color: #d4af37;
+      font-weight: 500;
+      margin: 0.15rem 0 0;
+      text-align: left;
+    }
+    .vagmreach-brand-logo-wrap--stack {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+    .vagmreach-brand-logo-wrap--center .vagmreach-brand-tagline {
+      text-align: center;
+      width: 100%;
+    }
+    .mobile-nav-toggle {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      background: rgba(11, 28, 51, 0.85);
+      flex-shrink: 0;
+    }
+    .mobile-nav-toggle:hover,
+    .mobile-nav-toggle[aria-expanded="true"] {
+      border-color: rgba(212, 175, 55, 0.65);
+      background: rgba(212, 175, 55, 0.12);
+    }
+    .mobile-nav-toggle-bar {
+      display: block;
+      width: 1.125rem;
+      height: 2px;
+      border-radius: 1px;
+      background: #d4af37;
+    }
+    .mobile-nav-panel {
+      background: rgba(4, 8, 18, 0.98);
+    }
+    .mobile-nav-link {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.65rem 0.25rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #d4d4d8;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+    }
+    .mobile-nav-link:hover,
+    .mobile-nav-link:focus-visible {
+      color: #d4af37;
+    }
+    .mobile-nav-auth {
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      margin-top: 0.25rem;
+    }
+    [data-light-panel] svg {
+      color: currentColor;
+    }
+    /* Responsive modals — fit viewport on phones, tablets, desktop (100% zoom) */
+    .vgm-modal-overlay {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: max(0.5rem, env(safe-area-inset-top, 0px))
+        max(0.5rem, env(safe-area-inset-right, 0px))
+        max(0.5rem, env(safe-area-inset-bottom, 0px))
+        max(0.5rem, env(safe-area-inset-left, 0px));
+      overflow: hidden;
+    }
+    .vgm-modal-panel {
+      width: 100%;
+      max-height: min(92dvh, 900px);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-height: 0;
+    }
+    @supports not (height: 1dvh) {
+      .vgm-modal-panel {
+        max-height: min(92vh, 900px);
+      }
+    }
+    .vgm-modal-scroll {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+    }
+    body.vgm-modal-open {
+      overflow: hidden;
+    }
+    #cart-drawer {
+      height: 100dvh;
+      max-height: 100dvh;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+  </style>
+</head>
+
+<body class="vgm-gold-ui text-gold-500 font-sans antialiased selection:bg-gold-500 selection:text-royal-950">
+
+  <!-- Top Concurrency & Security Status Bar -->
+  <div class="site-top-bar bg-royal-900 border-b border-gold-500/20 py-2 px-4 text-xs">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-stone-400">
+      <!-- Concurrency Activity Indicator -->
+      <div class="flex items-center gap-2">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+        </span>
+        <span class="text-stone-600 font-medium">
+          <span id="active-shoppers-count" class="text-gold-400 font-bold">148</span> Shoppers Live Now
+        </span>
+        <span class="hidden md:inline text-stone-600">|</span>
+        <span class="hidden md:inline text-stone-400">High Demand: Stock locks automatically for 10 mins upon cart reservation</span>
+      </div>
+
+      <!-- Live Security Protocol Badges -->
+      <div class="flex items-center gap-4 text-[11px]">
+        <span class="flex items-center gap-1.5 text-emerald-400">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          256-Bit SSL Encrypted
+        </span>
+        <span class="hidden sm:flex items-center gap-1.5 text-gold-400">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          PCI-DSS Level 1 Ready
+        </span>
+        <span class="flex items-center gap-1 text-stone-600">
+          <span class="inline-block w-2 h-2 rounded-full bg-gold-400"></span>
+          Insured Transit (India & Global)
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header id="site-header" class="site-header sticky top-0 z-40 border-b border-gold-500/20 shadow-lg shadow-black/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between gap-2 min-h-[4.75rem] py-2 md:h-20 md:py-0">
+      
+      <!-- Brand Logo — transparent gold mark on #0D2247 header -->
+      <div class="vagmreach-brand-logo-wrap vagmreach-brand-logo-wrap--stack flex cursor-pointer shrink-0 min-w-0 max-w-[58vw] sm:max-w-none" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        <img
+          src="/assets/images/vagmreach-logo.svg"
+          alt="VAGMREACH — 1 Gram Gold Atelier"
+          class="vagmreach-brand-logo"
+          width="240"
+          height="96"
+          decoding="async"
+          fetchpriority="high"
+        />
+        <p class="vagmreach-brand-tagline">customer happiness is our happiness</p>
+      </div>
+
+      <!-- Navigation Links (tablet/desktop) -->
+      <nav class="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm font-medium tracking-wide shrink-0" aria-label="Primary">
+        <a href="#collections" class="text-stone-300 hover:text-gold-400 transition-colors">Collections</a>
+        <a href="#shipping-calculator" class="text-stone-300 hover:text-gold-400 transition-colors">Shipping API</a>
+        <button type="button" onclick="openAccountModal('orders')" class="text-stone-300 hover:text-gold-400 transition-colors">My Orders</button>
+        <button type="button" onclick="openAccountModal('addresses')" class="text-stone-300 hover:text-gold-400 transition-colors">Addresses</button>
+      </nav>
+
+      <!-- Action Utilities -->
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <div id="header-auth-user" class="max-md:hidden hidden items-center gap-1.5 sm:gap-2 shrink-0">
+          <span id="header-user-label" class="text-[11px] sm:text-xs text-stone-400 whitespace-nowrap truncate max-w-[7rem] sm:max-w-[10rem]" title="Signed-in customer"></span>
+          <span class="text-stone-600/80 hidden sm:inline select-none" aria-hidden="true">·</span>
+          <button type="button" onclick="openAccountModal('orders')" class="shrink-0 px-2 py-1 rounded-md border border-gold-500/30 bg-royal-800/50 text-[11px] sm:text-xs text-gold-200 hover:border-gold-400/60 transition">
+            My account
+          </button>
+          <button type="button" onclick="customerLogout()" class="shrink-0 px-2 py-1 rounded-md border border-stone-600/40 text-[11px] sm:text-xs text-stone-400 hover:text-gold-300 hover:border-stone-500 transition whitespace-nowrap">
+            Log out
+          </button>
+        </div>
+
+        <!-- Mobile menu (hamburger) -->
+        <button
+          type="button"
+          id="mobile-nav-toggle"
+          class="mobile-nav-toggle md:hidden"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-nav-panel"
+          onclick="toggleMobileNav()"
+        >
+          <span class="mobile-nav-toggle-bar" aria-hidden="true"></span>
+          <span class="mobile-nav-toggle-bar" aria-hidden="true"></span>
+          <span class="mobile-nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+
+        <!-- Cart Button with dynamic badge -->
+        <button id="cart-toggle-btn" onclick="toggleCartDrawer(true)" class="relative p-2.5 rounded-full bg-royal-800/80 border border-gold-500/30 text-gold-200 hover:border-gold-400 transition shrink-0" aria-label="Open cart">
+          <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+          <span id="cart-counter" class="absolute -top-1 -right-1 bg-gold-500 text-black text-[11px] font-bold h-5 w-5 rounded-full flex items-center justify-center shadow-lg">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu panel (expand from hamburger) -->
+    <div id="mobile-nav-panel" class="mobile-nav-panel md:hidden hidden border-t border-gold-500/20 pb-3 pt-1 px-1" role="navigation" aria-label="Mobile menu">
+      <nav class="flex flex-col" aria-label="Primary mobile">
+        <a href="#collections" class="mobile-nav-link" onclick="closeMobileNav()">Collections</a>
+        <a href="#shipping-calculator" class="mobile-nav-link" onclick="closeMobileNav()">Shipping API</a>
+        <button type="button" onclick="closeMobileNav(); openAccountModal('orders')" class="mobile-nav-link">My Orders</button>
+        <button type="button" onclick="closeMobileNav(); openAccountModal('addresses')" class="mobile-nav-link">Addresses</button>
+      </nav>
+      <div class="mobile-nav-auth">
+        <div id="header-auth-user-mobile" class="hidden flex-col">
+          <span id="header-user-label-mobile" class="mobile-nav-link text-stone-500 text-[11px] border-b-0 pb-1" title="Signed-in customer"></span>
+          <button type="button" onclick="closeMobileNav(); openAccountModal('orders')" class="mobile-nav-link text-gold-200">My account</button>
+          <button type="button" onclick="closeMobileNav(); customerLogout()" class="mobile-nav-link">Log out</button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </header>
+
+  <!-- Product Catalog Section -->
+  <section id="collections" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 border-b border-gold-500/20 pb-8">
+      <div>
+        <span class="text-gold-400 text-xs tracking-widest uppercase font-bold">Heirloom Quality Selection</span>
+        <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-gold-50 mt-1">Featured 1 Gram Gold Creations</h2>
+        <p class="text-stone-300 text-sm mt-2 max-w-xl">
+          Crafted with 1000mg gold deposit micro-fusion technology. Non-allergic, anti-tarnish, and durable for weddings, festivals, and daily elegance.
+        </p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0" id="category-filters">
+        <button onclick="filterProducts('all')" class="filter-btn active px-4 py-2 rounded-full text-xs font-semibold bg-gold-500 text-black">All Pieces</button>
+        <button onclick="filterProducts('necklace')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-royal-800/70 border border-gold-500/25 text-stone-300 hover:border-gold-400/50">Necklaces</button>
+        <button onclick="filterProducts('bangles')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-royal-800/70 border border-gold-500/25 text-stone-300 hover:border-gold-400/50">Bangles</button>
+        <button onclick="filterProducts('earrings')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-royal-800/70 border border-gold-500/25 text-stone-300 hover:border-gold-400/50">Jhumkas</button>
+        <button onclick="filterProducts('mangalsutra')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-royal-800/70 border border-gold-500/25 text-stone-300 hover:border-gold-400/50">Mangalsutras</button>
+      </div>
+    </div>
+
+    <!-- Product Grid Container -->
+    <div id="product-grid" data-light-panel class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Injected via JavaScript -->
+    </div>
+  </section>
+
+  <!-- Integrated Live Shipping API Calculator -->
+  <section id="shipping-calculator" class="py-16 bg-royal-950/45 border-y border-gold-500/15 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="inline-flex items-center gap-1.5 text-xs text-gold-400 font-bold uppercase tracking-widest bg-gold-500/10 px-3 py-1 rounded-full border border-gold-500/20">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Live Logistics API Integration
+        </span>
+        <h2 class="font-cinzel text-3xl font-bold text-gold-50 mt-3">Instant Courier & Pincode Rate Check</h2>
+        <p class="text-stone-300 text-sm mt-2">
+          Real-time integration simulator with BlueDart, Delhivery, and DTDC. Check insured gold cargo dispatch timelines and tariffs for your delivery pin code.
+        </p>
+      </div>
+
+      <div class="bg-cream-50/95 border border-gold-500/25 rounded-2xl p-6 sm:p-8 shadow-2xl shadow-black/30" data-light-panel>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
+          
+          <div class="md:col-span-6 space-y-2">
+            <label for="shipping-pincode" class="block text-xs font-semibold text-stone-600 uppercase tracking-wider">
+              Enter Delivery Postal PIN Code (India / Global)
+            </label>
+            <div class="relative">
+              <input type="text" id="shipping-pincode" placeholder="e.g. 500001 or 400001 or 110001" maxlength="6" 
+                     class="w-full bg-white border border-cream-300 rounded-xl px-4 py-3.5 text-stone-900 placeholder-stone-600 focus:outline-none focus:border-gold-400 transition font-mono tracking-wider">
+              <span id="pincode-city-badge" class="hidden absolute right-3 top-3.5 text-xs bg-gold-500/20 text-gold-300 px-2 py-0.5 rounded font-sans"></span>
+            </div>
+          </div>
+
+          <div class="md:col-span-3 space-y-2">
+            <label class="block text-xs font-semibold text-stone-600 uppercase tracking-wider">Transit Insurance</label>
+            <div class="bg-white border border-cream-300 rounded-xl px-3 py-3 text-xs text-stone-600 flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>100% Value Insured</span>
+            </div>
+          </div>
+
+          <div class="md:col-span-3">
+            <button onclick="calculateShippingRates()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-gold-500 to-gold-400 text-regal-900 font-bold text-sm tracking-wider uppercase hover:bg-gold-300 transition flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              Query API
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Dynamic Results Container -->
+        <div id="shipping-results" class="hidden mt-8 pt-6 border-t border-cream-300/80 space-y-4">
+          <div class="flex items-center justify-between text-xs text-stone-400">
+            <span>Available API Service Partners for <strong id="res-pincode" class="text-stone-900"></strong>:</span>
+            <span class="text-emerald-400 font-mono">API Status: 200 OK (Latency: 28ms)</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" id="courier-cards-container">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-b from-royal-900/95 to-royal-950 border-t border-gold-500/20 text-stone-400 text-xs py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-8 mb-12 border-b border-gold-500/15 pb-12">
+      <!-- Corporate Details & Trust Assurance -->
+      <div class="md:col-span-4 space-y-4">
+        <div class="vagmreach-brand-logo-wrap vagmreach-brand-logo-wrap--stack flex">
+          <img
+            src="/assets/images/vagmreach-logo.svg"
+            alt="VAGMREACH"
+            class="vagmreach-brand-logo vagmreach-brand-logo--footer"
+            width="180"
+            height="64"
+            decoding="async"
+          />
+          <p class="vagmreach-brand-tagline">customer happiness is our happiness</p>
+        </div>
+        <p class="text-stone-400 text-xs leading-relaxed">
+          Pioneering 1000mg 24K Micro-Bonded Gold Fine Jewellery Atelier. Certified authenticity, physical vault security, and insured transit nationwide.
+        </p>
+        <div class="text-[11px] text-emerald-400 flex items-center gap-1.5 font-medium">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          Registered & Verified Enterprise Entity
+        </div>
+      </div>
+
+      <!-- Head Office (Corporate Headquarters) -->
+      <div class="md:col-span-4 space-y-2.5 p-4 rounded-xl bg-royal-800/35 border border-gold-500/15">
+        <div class="flex items-center gap-2 text-gold-400 font-bold text-xs uppercase tracking-wider">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          Corporate Headquarters (Hyderabad)
+        </div>
+        <p class="text-stone-400 text-xs leading-relaxed">
+          <strong class="text-gold-50 block">WorkFlo Hitex Bizness Square</strong>
+          4th Floor, Unit No 405-411, Bizness Square,<br>
+          HNO.1-98/3/5/23 TO 27, Jubilee Enclave,<br>
+          SY Nos 66&67, Madhapur, Serlingampally Mandal,<br>
+          RR DIST, Hyderabad, Telangana - <span class="text-gold-400 font-mono font-semibold">500081</span>
+        </p>
+        <div class="text-[11px] text-stone-500 pt-1">
+          Direct Line: <span class="text-stone-600 font-mono">+91 40 4859 2000</span>
+        </div>
+      </div>
+
+      <!-- Branch Address & Fulfillment Atelier -->
+      <div class="md:col-span-4 space-y-2.5 p-4 rounded-xl bg-royal-800/35 border border-gold-500/15">
+        <div class="flex items-center gap-2 text-gold-400 font-bold text-xs uppercase tracking-wider">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Regional Branch & Atelier (Andhra Pradesh)
+        </div>
+        <p class="text-stone-400 text-xs leading-relaxed">
+          <strong class="text-gold-50 block">Vagmreach Karigar Fulfillment Center</strong>
+          1/131/B, Hosur Village,<br>
+          Pathikonda Mandal, Kurnool District,<br>
+          Andhra Pradesh - <span class="text-gold-400 font-mono font-semibold">518380</span>
+        </p>
+        <div class="text-[11px] text-stone-500 pt-1">
+          Fulfillment Hub: <span class="text-stone-600 font-mono">AP-KNL-DISPATCH-01</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h5 class="text-gold-100 font-bold text-xs uppercase tracking-wider mb-3">Integrated Gateways</h5>
+        <ul class="space-y-2 text-stone-500">
+          <li class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Razorpay Secured Checkout</li>
+          <li class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Stripe Global Card Processing</li>
+          <li class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> NPCI Verified UPI & QR</li>
+          <li class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Cash On Delivery (OTP-Verified)</li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-gold-100 font-bold text-xs uppercase tracking-wider mb-3">Carrier Dispatch APIs</h5>
+        <ul class="space-y-2 text-stone-500">
+          <li>BlueDart Apex Gold Insured</li>
+          <li>Delhivery Surface & Express Air</li>
+          <li>Shiprocket Multi-Carrier Orchestrator</li>
+          <li>DHL Express International Armored</li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="text-gold-100 font-bold text-xs uppercase tracking-wider mb-3">Security & Compliance</h5>
+        <div class="space-y-2 text-stone-500">
+          <p>ISO/IEC 27001:2022 Certified</p>
+          <p>PCI-DSS Level-1 Compliant Tokens</p>
+          <p>End-to-End TLS 1.3 Transport Security</p>
+          <p class="pt-2 text-gold-400 font-mono"><a href="mailto:contact@vagmreach.in" class="hover:text-gold-300">contact@vagmreach.in</a></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 mt-12 pt-6 border-t border-gold-500/15 text-center text-stone-500 text-[11px] flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div>© 2026 Vagmreach Tech LLP. All rights reserved.</div>
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-gold-400">Privacy Policy</a>
+        <a href="#" class="hover:text-gold-400">Terms of Commerce</a>
+        <a href="#" class="hover:text-gold-400">Shipping SLA</a>
+        <a href="#" class="hover:text-gold-400">Security Disclosure</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer Component -->
+  <div id="cart-drawer-backdrop" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-stone-900/25 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  
+  <aside id="cart-drawer" data-light-panel class="fixed top-0 right-0 h-[100dvh] max-h-[100dvh] w-full max-w-md bg-white border-l border-cream-300 z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+    
+    <!-- Drawer Header -->
+    <div class="p-5 border-b border-cream-300 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <h3 class="font-cinzel font-bold text-stone-900 text-base">Your Gold Vault</h3>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="text-stone-400 hover:text-gold-700 p-1">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Multi-User Reservation Warning Bar -->
+    <div id="cart-timer-bar" class="bg-amber-950/40 border-b border-amber-500/20 px-4 py-2.5 flex items-center justify-between text-xs">
+      <span class="text-amber-200 flex items-center gap-1.5">
+        <svg class="w-4 h-4 text-amber-400 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
+        Stock reserved for:
+      </span>
+      <span id="reservation-timer" class="font-mono font-bold text-amber-400">09:59</span>
+    </div>
+
+    <!-- Cart Items Container -->
+    <div id="cart-items-list" class="flex-1 overflow-y-auto p-4 space-y-4">
+      <!-- Items dynamically populated -->
+    </div>
+
+    <!-- Cart Footer with Pricing & Checkout trigger -->
+    <div class="p-5 border-t border-cream-300 bg-cream-200/70 space-y-3">
+      <div class="space-y-1.5 text-xs text-stone-400">
+        <div class="flex justify-between">
+          <span>Subtotal</span>
+          <span id="cart-subtotal" class="text-stone-900 font-medium">₹0</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Insured Transit</span>
+          <span class="text-emerald-400 font-semibold">FREE (100% Covered)</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Govt Tax (GST 3% on Gold)</span>
+          <span id="cart-tax" class="text-stone-900 font-medium">₹0</span>
+        </div>
+        <div class="flex justify-between text-sm font-bold text-stone-900 pt-2 border-t border-cream-300">
+          <span>Estimated Total</span>
+          <span id="cart-total" class="text-gold-400 font-cinzel text-base">₹0</span>
+        </div>
+      </div>
+
+      <button id="checkout-start-btn" onclick="openCheckoutModal()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-gold-500 to-gold-400 text-regal-900 font-bold text-sm uppercase tracking-wider hover:bg-gold-300 transition shadow-lg flex items-center justify-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+        Proceed to Secure Payment
+      </button>
+
+      <div class="flex items-center justify-center gap-2 text-[10px] text-stone-500">
+        <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        Encrypted via Razorpay & Stripe Gateway API
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- Login required at checkout -->
+  <div id="auth-modal" class="vgm-modal-overlay z-[60] bg-stone-900/50 backdrop-blur-sm hidden">
+    <div class="vgm-modal-panel max-w-md bg-cream-50 rounded-2xl border border-gold-500/30" data-light-panel role="dialog" aria-modal="true">
+      <div class="vgm-modal-scroll p-4 sm:p-6">
+      <h3 id="auth-modal-title" class="font-cinzel text-lg font-bold text-stone-900 mb-2">Customer login</h3>
+      <p id="auth-modal-subtitle" class="text-xs text-stone-500 mb-4">Sign in with mobile + password or OTP. Browse the catalog without an account.</p>
+      <div class="flex gap-2 mb-4 text-xs">
+        <button type="button" id="auth-customer-tab-login" class="flex-1 px-3 py-1.5 rounded bg-gold-500 text-black font-semibold">Login</button>
+        <button type="button" id="auth-customer-tab-register" class="flex-1 px-3 py-1.5 rounded bg-cream-200 text-stone-600">Register</button>
+      </div>
+      <fieldset class="mb-3 space-y-2 border-0 p-0">
+        <legend class="text-[11px] font-semibold text-stone-600 uppercase tracking-wide mb-1">Sign-in method</legend>
+        <label class="flex items-center gap-2 text-sm text-stone-800 cursor-pointer">
+          <input type="radio" name="auth-method" value="password" checked class="text-gold-500 focus:ring-gold-500" />
+          <span>Option 1 — Mobile number + password</span>
+        </label>
+        <label class="flex items-center gap-2 text-sm text-stone-800 cursor-pointer">
+          <input type="radio" name="auth-method" value="otp" class="text-gold-500 focus:ring-gold-500" />
+          <span>Option 2 — Mobile number + OTP</span>
+        </label>
+      </fieldset>
+      <div class="space-y-2">
+        <div>
+          <label for="auth-mobile" class="block text-[11px] text-stone-600 mb-1">Mobile number *</label>
+          <input id="auth-mobile" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile" maxlength="15" class="w-full border rounded-lg p-2 text-sm" />
+        </div>
+        <div id="auth-field-password">
+          <label for="auth-password" class="block text-[11px] text-stone-600 mb-1">Password *</label>
+          <input id="auth-password" type="password" autocomplete="new-password" placeholder="Min. 6 characters" class="w-full border rounded-lg p-2 text-sm" />
+        </div>
+        <div id="auth-field-otp" class="hidden space-y-2">
+          <div>
+            <label for="auth-otp-code" class="block text-[11px] text-stone-600 mb-1">OTP *</label>
+            <input id="auth-otp-code" inputmode="numeric" maxlength="6" placeholder="6-digit OTP" class="w-full border rounded-lg p-2 text-sm" />
+          </div>
+          <button type="button" id="auth-send-otp-btn" onclick="sendAuthOtp()" class="w-full py-2 border border-cream-300 rounded-lg text-xs font-semibold text-stone-700 hover:bg-cream-100">Send OTP to mobile</button>
+        </div>
+        <button type="button" id="auth-submit-btn" onclick="submitAuthForm()" class="w-full py-2.5 bg-stone-900 text-gold-400 rounded-lg text-sm font-semibold">Login</button>
+      </div>
+      <p id="auth-error" class="text-xs mt-2 hidden" role="status"></p>
+      <button type="button" onclick="closeAuthModal()" class="mt-4 text-xs text-stone-500 w-full">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comprehensive Checkout Modal with Shipping API & Payment Gateway Options -->
+  <div id="checkout-modal" class="vgm-modal-overlay z-50 bg-stone-900/35 backdrop-blur-md hidden">
+    <div class="vgm-modal-panel relative w-full max-w-3xl bg-cream-50 border border-gold-500/40 rounded-2xl shadow-2xl" data-light-panel role="dialog" aria-modal="true">
+      
+      <!-- Modal Header -->
+      <div class="shrink-0 px-4 sm:px-6 py-3 sm:py-4 bg-cream-50 border-b border-cream-300 flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+          <div class="w-7 h-7 shrink-0 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <div class="min-w-0">
+            <h3 class="font-cinzel text-sm sm:text-base font-bold text-stone-900 truncate">Bank-Grade 256-Bit Checkout</h3>
+            <p class="text-[10px] sm:text-[11px] text-stone-400 truncate">Order Session ID: <span id="checkout-session-token" class="font-mono text-gold-400">VGM-9842X</span></p>
+          </div>
+        </div>
+        <button onclick="closeCheckoutModal()" class="shrink-0 text-stone-400 hover:text-gold-700 p-1" aria-label="Close checkout">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Checkout Step Navigator -->
+      <div class="shrink-0 grid grid-cols-3 bg-white/80 border-b border-cream-300 text-[10px] sm:text-xs font-semibold text-center">
+        <div id="step-tab-1" class="py-2 sm:py-2.5 border-b-2 border-gold-500 text-gold-400 leading-tight px-0.5">1. Shipping</div>
+        <div id="step-tab-2" class="py-2 sm:py-2.5 border-b-2 border-transparent text-stone-500 leading-tight px-0.5">2. Courier</div>
+        <div id="step-tab-3" class="py-2 sm:py-2.5 border-b-2 border-transparent text-stone-500 leading-tight px-0.5">3. Payment</div>
+      </div>
+
+      <!-- Modal Body (scrolls inside panel) -->
+      <div class="vgm-modal-scroll p-4 sm:p-6">
+
+        <!-- STEP 1: Address & Customer Details -->
+        <div id="checkout-step-1" class="space-y-4">
+          <h4 class="text-sm font-bold text-stone-900 uppercase tracking-wider flex items-center gap-2">
+            <span>Recipient & Delivery Address</span>
+            <span class="text-xs text-stone-400 font-normal">(Insured Dispatch)</span>
+          </h4>
+          <div id="saved-addresses" class="space-y-2 text-xs"></div>
+          <label id="save-address-row" class="flex items-center gap-2 text-xs text-stone-600 hidden">
+            <input type="checkbox" id="save-address-check" checked /> Save this address to my account
+          </label>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs text-stone-600 mb-1">Full Legal Name *</label>
+              <input type="text" id="cust-name" value="Priya Nambiar" class="w-full bg-cream-50 border border-cream-300 rounded-lg p-2.5 text-xs text-stone-900 focus:border-gold-500 outline-none">
+            </div>
+            <div>
+              <label class="block text-xs text-stone-600 mb-1">Mobile Number (For Dispatch OTP) *</label>
+              <input type="tel" id="cust-phone" value="+91 98450 12345" class="w-full bg-cream-50 border border-cream-300 rounded-lg p-2.5 text-xs text-stone-900 focus:border-gold-500 outline-none font-mono">
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-xs text-stone-600 mb-1">Street Address / House No. / Landmark *</label>
+              <input type="text" id="cust-address" value="Flat 402, Royal Palms, Jubilee Hills" class="w-full bg-cream-50 border border-cream-300 rounded-lg p-2.5 text-xs text-stone-900 focus:border-gold-500 outline-none">
+            </div>
+            <div>
+              <label class="block text-xs text-stone-600 mb-1">Postal PIN Code *</label>
+              <input type="text" id="cust-pincode" value="500033" maxlength="6" oninput="autofillLocation(this.value)" class="w-full bg-cream-50 border border-cream-300 rounded-lg p-2.5 text-xs text-stone-900 focus:border-gold-500 outline-none font-mono">
+            </div>
+            <div>
+              <label class="block text-xs text-stone-600 mb-1">City & State</label>
+              <input type="text" id="cust-city" value="Hyderabad, Telangana" readonly class="w-full bg-white border border-cream-300 rounded-lg p-2.5 text-xs text-stone-400 outline-none cursor-not-allowed">
+            </div>
+          </div>
+
+          <div class="pt-4 flex justify-end">
+            <button onclick="goToCheckoutStep(2)" class="px-6 py-2.5 rounded-lg bg-gold-500 hover:bg-gold-400 text-black font-bold text-xs uppercase tracking-wider transition">
+              Continue to Courier Option →
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2: Live Shipping Partner Selection -->
+        <div id="checkout-step-2" class="hidden space-y-4">
+          <div class="flex items-center justify-between">
+            <h4 class="text-sm font-bold text-stone-900 uppercase tracking-wider">Select Verified Courier API Partner</h4>
+            <span class="text-xs text-gold-400">Pincode: <strong id="step2-pincode-display">500033</strong></span>
+          </div>
+
+          <div class="space-y-3">
+            
+            <label class="flex items-center justify-between p-3.5 rounded-xl border border-gold-500/60 bg-gold-500/10 cursor-pointer">
+              <div class="flex items-center gap-3">
+                <input type="radio" name="courier-choice" value="BlueDart Air" checked class="text-gold-500 focus:ring-0">
+                <div>
+                  <div class="text-xs font-bold text-stone-900 flex items-center gap-2">
+                    BlueDart Apex Gold Air Express
+                    <span class="bg-gold-500 text-black text-[9px] px-1.5 py-0.5 rounded font-bold uppercase">Recommended</span>
+                  </div>
+                  <div class="text-[11px] text-stone-400">Next-Day Delivery • Insured Vault Tamper-Proof Polybag</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-xs font-bold text-emerald-400">FREE</span>
+                <p class="text-[10px] text-stone-500">Regular: ₹250</p>
+              </div>
+            </label>
+
+            <label class="flex items-center justify-between p-3.5 rounded-xl border border-cream-300 bg-cream-50/60 cursor-pointer hover:border-stone-600">
+              <div class="flex items-center gap-3">
+                <input type="radio" name="courier-choice" value="Delhivery Flash" class="text-gold-500 focus:ring-0">
+                <div>
+                  <div class="text-xs font-bold text-stone-900">Delhivery Direct Express Air</div>
+                  <div class="text-[11px] text-stone-400">Estimated: 48 Hours • Geotagged OTP Verification</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-xs font-bold text-emerald-400">FREE</span>
+              </div>
+            </label>
+
+            <label class="flex items-center justify-between p-3.5 rounded-xl border border-cream-300 bg-cream-50/60 cursor-pointer hover:border-stone-600">
+              <div class="flex items-center gap-3">
+                <input type="radio" name="courier-choice" value="Armored VIP Cargo" class="text-gold-500 focus:ring-0">
+                <div>
+                  <div class="text-xs font-bold text-stone-900">Secured Armored Escort (High Value)</div>
+                  <div class="text-[11px] text-stone-400">Hand-to-Hand Delivery with ID Inspection</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-xs font-bold text-gold-400">+₹499</span>
+              </div>
+            </label>
+
+          </div>
+
+          <div class="pt-4 flex justify-between">
+            <button onclick="goToCheckoutStep(1)" class="px-5 py-2.5 rounded-lg border border-cream-300 text-stone-600 text-xs font-semibold">
+              ← Back
+            </button>
+            <button type="button" onclick="continueToPayment()" class="px-6 py-2.5 rounded-lg bg-gold-500 hover:bg-gold-400 text-black font-bold text-xs uppercase tracking-wider transition">
+              Continue to Payment →
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 3: Multi-Gateway Payment System -->
+        <div id="checkout-step-3" class="hidden space-y-5">
+          <div class="flex items-center justify-between">
+            <h4 class="text-sm font-bold text-stone-900 uppercase tracking-wider">Choose Payment Method</h4>
+            <span class="text-xs text-stone-400">Payable: <strong id="step3-total-display" class="text-gold-400 font-cinzel text-sm">₹0</strong></span>
+          </div>
+
+          <!-- Payment Tabs -->
+          <div class="flex border-b border-cream-300 text-xs font-semibold">
+            <button onclick="selectPaymentMethod('upi')" id="tab-upi" class="px-4 py-2 text-gold-400 border-b-2 border-gold-500">UPI / QR Code</button>
+            <button onclick="selectPaymentMethod('card')" id="tab-card" class="px-4 py-2 text-stone-400 border-b-2 border-transparent hover:text-gold-700">Credit / Debit Card</button>
+            <button onclick="selectPaymentMethod('netbanking')" id="tab-netbanking" class="px-4 py-2 text-stone-400 border-b-2 border-transparent hover:text-gold-700">Net Banking</button>
+            <button onclick="selectPaymentMethod('cod')" id="tab-cod" class="px-4 py-2 text-stone-400 border-b-2 border-transparent hover:text-gold-700">Verified COD</button>
+          </div>
+
+          <!-- Method 1: UPI / QR -->
+          <div id="method-upi" class="space-y-4">
+            <div class="flex flex-col sm:flex-row items-center gap-6 p-4 rounded-xl bg-cream-50 border border-cream-300">
+              <div class="bg-white p-3 rounded-lg flex flex-col items-center">
+                <!-- Vector Mock QR code -->
+                <svg class="w-32 h-32" viewBox="0 0 100 100" fill="none">
+                  <rect width="100" height="100" fill="white"/>
+                  <!-- Corners -->
+                  <rect x="10" y="10" width="25" height="25" fill="black"/>
+                  <rect x="15" y="15" width="15" height="15" fill="white"/>
+                  <rect x="18" y="18" width="9" height="9" fill="black"/>
+                  <rect x="65" y="10" width="25" height="25" fill="black"/>
+                  <rect x="70" y="15" width="15" height="15" fill="white"/>
+                  <rect x="73" y="18" width="9" height="9" fill="black"/>
+                  <rect x="10" y="65" width="25" height="25" fill="black"/>
+                  <rect x="15" y="70" width="15" height="15" fill="white"/>
+                  <rect x="18" y="73" width="9" height="9" fill="black"/>
+                  <!-- Random QR Matrix Blocks -->
+                  <rect x="42" y="12" width="6" height="6" fill="black"/>
+                  <rect x="52" y="24" width="6" height="6" fill="black"/>
+                  <rect x="42" y="36" width="6" height="6" fill="black"/>
+                  <rect x="25" y="45" width="6" height="6" fill="black"/>
+                  <rect x="45" y="55" width="6" height="6" fill="black"/>
+                  <rect x="65" y="45" width="6" height="6" fill="black"/>
+                  <rect x="55" y="70" width="6" height="6" fill="black"/>
+                  <rect x="75" y="65" width="6" height="6" fill="black"/>
+                  <rect x="85" y="80" width="6" height="6" fill="black"/>
+                </svg>
+                <span class="text-[9px] text-stone-600 font-mono mt-1">Scan via any UPI App</span>
+              </div>
+
+              <div class="space-y-2 flex-1 w-full">
+                <div class="text-xs text-stone-600 font-semibold">Or Enter Registered Virtual Payment Address (VPA)</div>
+                <div class="flex gap-2">
+                  <input type="text" id="vpa-input" placeholder="e.g. mobile@okaxis or name@upi" class="flex-1 bg-white border border-cream-300 rounded-lg px-3 py-2 text-xs text-stone-900 focus:border-gold-500 outline-none">
+                  <button onclick="verifyVpa()" class="px-3 py-2 bg-stone-800 hover:bg-stone-700 text-gold-400 rounded-lg text-xs font-semibold">Verify</button>
+                </div>
+                <p id="vpa-status" class="text-[11px] text-emerald-400 hidden">✓ VPA Verified (NPCI Switch Ready)</p>
+                <div class="flex items-center gap-3 pt-2">
+                  <span class="text-[10px] text-stone-500">Supported:</span>
+                  <span class="text-xs text-stone-600 font-bold">Google Pay</span>
+                  <span class="text-xs text-stone-600 font-bold">PhonePe</span>
+                  <span class="text-xs text-stone-600 font-bold">Paytm</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Method 2: Credit / Debit Card -->
+          <div id="method-card" class="hidden space-y-3">
+            <div>
+              <label class="block text-xs text-stone-600 mb-1">Cardholder Name</label>
+              <input type="text" value="Priya Nambiar" class="w-full bg-cream-50 border border-cream-300 rounded-lg p-2.5 text-xs text-stone-900 focus:border-gold-500 outline-none">
+            </div>
+            <div>
+              <label class="block text-xs text-stone-600 mb-1">Card Number (PCI-DSS Tokenized)</label>
+              <div class="relative">
+                <input type="text" placeholder="4532 •••• •••• 8921" maxlength="19" class="w-full bg-cream-50 border border-cream-300 rounded-lg p-2.5 text-xs text-stone-900 focus:border-gold-500 outline-none font-mono">
+                <span class="absolute right-3 top-2.5 text-xs text-gold-400 font-bold">VISA / MC</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs text-stone-600 mb-1">Expiry Date (MM/YY)</label>
+                <input type="text" placeholder="12/28" maxlength="5" class="w-full bg-cream-50 border border-cream-300 rounded-lg p-2.5 text-xs text-stone-900 focus:border-gold-500 outline-none font-mono">
+              </div>
+              <div>
+                <label class="block text-xs text-stone-600 mb-1">CVV / CVC (3 Digits)</label>
+                <input type="password" placeholder="•••" maxlength="3" class="w-full bg-cream-50 border border-cream-300 rounded-lg p-2.5 text-xs text-stone-900 focus:border-gold-500 outline-none font-mono">
+              </div>
+            </div>
+          </div>
+
+          <!-- Method 3: Net Banking -->
+          <div id="method-netbanking" class="hidden space-y-3">
+            <label class="block text-xs text-stone-600">Select Instant NetBanking Bank</label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <button class="p-2.5 rounded-lg border border-gold-500/40 bg-gold-500/10 text-xs font-semibold text-stone-900">HDFC Bank</button>
+              <button class="p-2.5 rounded-lg border border-cream-300 bg-cream-50 text-xs font-semibold text-stone-600 hover:border-gold-500">SBI</button>
+              <button class="p-2.5 rounded-lg border border-cream-300 bg-cream-50 text-xs font-semibold text-stone-600 hover:border-gold-500">ICICI Bank</button>
+              <button class="p-2.5 rounded-lg border border-cream-300 bg-cream-50 text-xs font-semibold text-stone-600 hover:border-gold-500">Axis Bank</button>
+            </div>
+          </div>
+
+          <!-- Method 4: Verified COD -->
+          <div id="method-cod" class="hidden space-y-2 p-4 rounded-xl bg-cream-50 border border-cream-300">
+            <h5 class="text-xs font-bold text-stone-900">Cash on Delivery with Fraud Prevention</h5>
+            <p class="text-xs text-stone-400">
+              To prevent fraudulent bookings in high concurrency rush, a 4-digit verification code will be sent to your mobile phone before dispatch approval.
+            </p>
+          </div>
+
+          <!-- Action and Simulation Button -->
+          <div class="pt-3 flex justify-between items-center border-t border-cream-300">
+            <button onclick="goToCheckoutStep(2)" class="px-5 py-2.5 rounded-lg border border-cream-300 text-stone-600 text-xs font-semibold">
+              ← Back
+            </button>
+            <button id="pay-now-btn" onclick="executePayment()" class="px-8 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-black font-bold text-xs uppercase tracking-wider hover:opacity-90 transition flex items-center gap-2 shadow-lg">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              Authorize & Complete Payment
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Processing Screen (Hidden by default) -->
+        <div id="checkout-processing" class="hidden py-12 text-center space-y-4">
+          <div class="w-16 h-16 border-4 border-gold-500/20 border-t-gold-500 rounded-full animate-spin mx-auto"></div>
+          <h4 class="font-cinzel text-lg font-bold text-stone-900">Contacting Gateway API...</h4>
+          <p class="text-xs text-stone-400 max-w-sm mx-auto">
+            Verifying 3D-Secure 2.0 payload with banking switch. Encrypting transaction tokens and locking stock reserve.
+          </p>
+        </div>
+
+        <!-- Order Success State -->
+        <div id="checkout-success" class="hidden py-8 text-center space-y-4">
+          <div class="w-16 h-16 rounded-full bg-emerald-500/20 border-2 border-emerald-500 text-emerald-400 flex items-center justify-center mx-auto text-2xl">
+            ✓
+          </div>
+          <h3 class="font-cinzel text-2xl font-bold text-stone-900">Payment Authorized & Confirmed!</h3>
+          <p class="text-xs text-stone-400 max-w-md mx-auto">
+            Your 1 Gram Gold order has been placed into the Insured Vault Queue. Consignment Waybill generated with BlueDart.
+          </p>
+
+          <div class="max-w-md mx-auto p-4 rounded-xl bg-cream-50 border border-cream-300 text-left space-y-2 text-xs font-mono">
+            <div class="flex justify-between">
+              <span class="text-stone-500">Order ID:</span>
+              <span id="confirmed-order-id" class="text-gold-400 font-bold">VGM-2026-8891</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-stone-500">Consignment AWB:</span>
+              <span class="text-emerald-400 font-bold">BLUEDART-88219034IN</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-stone-500">Transit Insurance:</span>
+              <span class="text-stone-900">Active (Policy: ICICI-LOMBARD)</span>
+            </div>
+          </div>
+
+          <div class="pt-3 flex justify-center gap-3">
+            <button onclick="closeCheckoutModal(); resetCart();" class="px-6 py-2.5 rounded-lg bg-gold-500 text-black font-bold text-xs uppercase tracking-wider">
+              Continue Shopping
+            </button>
+            <button onclick="toggleTrackingModal(true)" class="px-6 py-2.5 rounded-lg border border-cream-300 hover:border-gold-500 text-stone-900 text-xs font-semibold">
+              Live Transit Monitor
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Live Dispatch Tracking Modal -->
+  <div id="tracking-modal" class="vgm-modal-overlay z-50 bg-stone-900/30 backdrop-blur-sm hidden">
+    <div class="vgm-modal-panel w-full max-w-lg bg-cream-50 border border-cream-300 rounded-2xl shadow-2xl" data-light-panel role="dialog" aria-modal="true">
+      <div class="vgm-modal-scroll p-4 sm:p-6 space-y-4 sm:space-y-5">
+      
+      <div class="flex items-center justify-between border-b border-cream-300 pb-3">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <h3 class="font-cinzel text-base font-bold text-stone-900">Insured Gold Shipment Tracker</h3>
+        </div>
+        <button onclick="toggleTrackingModal(false)" class="text-stone-400 hover:text-gold-700">✕</button>
+      </div>
+
+      <div class="space-y-1">
+        <label class="text-xs text-stone-600 font-semibold">Tracking AWB or Mobile Number</label>
+        <div class="flex gap-2">
+          <input type="text" id="track-awb-input" value="BLUEDART-88219034IN" class="flex-1 bg-white border border-cream-300 rounded-lg px-3 py-2 text-xs text-stone-900 font-mono outline-none focus:border-gold-400">
+          <button onclick="simulateAwbQuery()" class="px-4 py-2 rounded-lg bg-gold-500 text-black font-bold text-xs uppercase tracking-wider">Track</button>
+        </div>
+      </div>
+
+      <!-- Tracking Timeline -->
+      <div class="space-y-4 pt-2">
+        <div class="relative pl-6 border-l-2 border-emerald-500 space-y-1">
+          <div class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-emerald-500"></div>
+          <div class="text-xs font-bold text-stone-900">Consignment In Armored Transit</div>
+          <div class="text-[11px] text-stone-400">Departed Hyderabad Vault Hub • Flight AI-840 Express</div>
+          <div class="text-[10px] text-stone-500 font-mono">Today, 02:45 PM</div>
+        </div>
+
+        <div class="relative pl-6 border-l-2 border-emerald-500 space-y-1">
+          <div class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-emerald-500"></div>
+          <div class="text-xs font-bold text-stone-900">Gold Hallmark & Weight Laser Verified</div>
+          <div class="text-[11px] text-stone-400">Tamper-evident barcode serial attached</div>
+          <div class="text-[10px] text-stone-500 font-mono">Today, 11:20 AM</div>
+        </div>
+
+        <div class="relative pl-6 border-l-2 border-cream-300 space-y-1">
+          <div class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-stone-700"></div>
+          <div class="text-xs font-bold text-stone-400">Out for Secure Delivery</div>
+          <div class="text-[11px] text-stone-500">OTP handshake will be requested upon arrival</div>
+          <div class="text-[10px] text-stone-600 font-mono">Expected Tomorrow by 1:00 PM</div>
+        </div>
+      </div>
+
+      <div class="pt-2 text-center">
+        <button onclick="toggleTrackingModal(false)" class="w-full py-2.5 rounded-lg border border-cream-300 text-xs font-semibold text-stone-600 hover:bg-stone-800">
+          Close Tracker
+        </button>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="product-detail-modal" class="vgm-modal-overlay z-[58] bg-stone-900/55 backdrop-blur-sm hidden">
+    <div class="vgm-modal-panel w-full max-w-4xl bg-cream-50 rounded-2xl border border-gold-500/30 shadow-2xl relative" data-light-panel role="dialog" aria-modal="true">
+      <div class="shrink-0 flex items-center justify-between gap-3 px-4 sm:px-6 pt-4 sm:pt-5 pb-2 border-b border-cream-300/80">
+        <h3 class="font-cinzel font-bold text-stone-900 text-base sm:text-lg pr-2">Product gallery</h3>
+        <button type="button" onclick="toggleProductDetailModal(false)" class="shrink-0 text-stone-500 hover:text-stone-800 text-xl leading-none p-1" aria-label="Close gallery">✕</button>
+      </div>
+      <div id="product-detail-body" class="vgm-modal-scroll px-4 sm:px-6 py-4 sm:py-5"></div>
+    </div>
+  </div>
+
+  <div id="product-terms-modal" class="vgm-modal-overlay z-[70] bg-stone-900/60 backdrop-blur-sm hidden">
+    <div class="vgm-modal-panel max-w-lg bg-cream-50 rounded-2xl border border-gold-500/40 shadow-2xl" data-light-panel role="dialog" aria-modal="true" aria-labelledby="product-terms-title">
+      <div class="vgm-modal-scroll p-4 sm:p-6">
+        <h3 id="product-terms-title" class="font-cinzel text-lg font-bold text-stone-900 mb-3">Important Product Note:</h3>
+        <p class="text-sm text-stone-700 leading-relaxed mb-4">
+          Our jewelry is crafted from premium brass/copper with a durable 24K gold plating to give you the exact look and feel of real gold. These are fashion temple jewelry pieces and are not solid or pure gold. They do not carry BIS hallmark certificates or gold resale/exchange value
+        </p>
+        <label class="flex items-start gap-3 cursor-pointer text-sm text-stone-800 mb-4">
+          <input type="radio" name="product-terms-agree" id="product-terms-agree-radio" value="yes" class="mt-1 shrink-0" onchange="onProductTermsAgreeChange()" />
+          <span>I agree</span>
+        </label>
+        <p id="product-terms-error" class="hidden text-xs text-red-600 mb-3"></p>
+        <button type="button" id="product-terms-confirm" disabled onclick="confirmProductTermsAgreement()" class="w-full py-2.5 rounded-lg bg-gold-500 text-black font-semibold text-sm disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gold-400">
+          Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="account-modal" class="vgm-modal-overlay z-[55] bg-stone-900/50 backdrop-blur-sm hidden">
+    <div class="vgm-modal-panel w-full max-w-lg bg-cream-50 rounded-2xl border border-gold-500/30" data-light-panel role="dialog" aria-modal="true">
+      <div class="vgm-modal-scroll p-4 sm:p-6">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="font-cinzel font-bold text-stone-900">My account</h3>
+        <button type="button" onclick="closeAccountModal()" class="text-stone-500">✕</button>
+      </div>
+      <div class="flex gap-2 mb-4 text-xs">
+        <button type="button" onclick="showAccountTab('orders')" class="px-3 py-1 rounded bg-gold-500 text-black font-semibold">Orders</button>
+        <button type="button" onclick="showAccountTab('addresses')" class="px-3 py-1 rounded bg-cream-200 text-stone-600">Addresses</button>
+      </div>
+      <div id="account-tab-orders" class="space-y-2">
+        <div id="my-orders-list"></div>
+      </div>
+      <div id="account-tab-addresses" class="hidden">
+        <div id="my-addresses-list" class="space-y-2"></div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="/assets/js/api-client.js?v=20260316f"></script>
+  <script src="/assets/js/product-renderer.js?v=20260316f"></script>
+  <script src="/assets/js/storefront.js?v=20260316f"></script>
+
+
+</body>
+</html>

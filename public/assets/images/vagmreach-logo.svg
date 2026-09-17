@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 100" role="img" aria-label="VAGMREACH">
+  <defs>
+    <linearGradient id="vgmGold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF0C8"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#947219"/>
+    </linearGradient>
+    <filter id="vgmGlow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="0" stdDeviation="1.5" flood-color="#D4AF37" flood-opacity="0.65"/>
+    </filter>
+  </defs>
+  <g filter="url(#vgmGlow)">
+    <!-- Torana arch -->
+    <path fill="none" stroke="url(#vgmGold)" stroke-width="1.6" stroke-linejoin="round"
+      d="M32 82 V46 C32 22 130 12 130 12 C130 12 228 22 228 46 V82"/>
+    <path fill="none" stroke="url(#vgmGold)" stroke-width="1" opacity="0.9"
+      d="M48 80 V50 C48 32 130 24 130 24 C130 24 212 32 212 50 V80"/>
+    <path fill="url(#vgmGold)" d="M122 10 L130 6 L138 10 L134 14 H126 Z"/>
+    <!-- VR monogram -->
+    <text x="130" y="58" text-anchor="middle" fill="url(#vgmGold)" font-family="Cinzel, Georgia, serif" font-size="26" font-weight="700" letter-spacing="-0.06em">VR</text>
+    <!-- Brand name -->
+    <text x="130" y="82" text-anchor="middle" fill="url(#vgmGold)" font-family="Cinzel, Georgia, serif" font-size="16" font-weight="700" letter-spacing="0.24em">VAGMREACH</text>
+  </g>
+</svg>

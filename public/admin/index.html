@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VAGMREACH Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: { 400: '#D4AF37', 500: '#D4AF37', 600: '#B89225', 800: '#755815' },
+            cream: { 50: '#FFFCF7', 100: '#F7F1E8', 200: '#EDE4D4', 300: '#E0D4C0' },
+            regal: { 900: '#2C261E' },
+            royal: { 800: '#112A52', 900: '#0D2247', 950: '#040812' },
+          },
+          fontFamily: {
+            cinzel: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      background-color: #0D2247;
+      background-image:
+        radial-gradient(ellipse 120% 70% at 50% -15%, rgba(212, 175, 55, 0.12), transparent 55%),
+        linear-gradient(168deg, #163562 0%, #112a52 28%, #0D2247 55%, #040812 100%);
+      background-attachment: fixed;
+    }
+    .site-header { background-color: #0D2247; }
+    .vagmreach-brand-logo {
+      display: block;
+      height: 3rem;
+      width: auto;
+      max-width: min(200px, 50vw);
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+    }
+    .vagmreach-brand-tagline {
+      font-size: 0.625rem;
+      line-height: 1.25;
+      letter-spacing: 0.03em;
+      color: #d4af37;
+      font-weight: 500;
+      margin: 0.35rem 0 0;
+    }
+    [data-light-panel] { color: #2c261e !important; }
+    [data-light-panel] * { color: inherit; }
+    .gold-card-glow:hover { box-shadow: 0 16px 40px -12px rgba(212, 175, 55, 0.45); }
+  </style>
+</head>
+<body class="font-sans text-gold-400 antialiased min-h-screen">
+  <div id="login-screen" class="max-w-md mx-auto mt-10 sm:mt-16 p-6 sm:p-8 rounded-xl shadow-2xl border border-gold-500/25 bg-royal-900/90 mx-4">
+    <div class="text-center mb-6">
+      <img src="/assets/images/vagmreach-logo.svg" alt="VAGMREACH" class="vagmreach-brand-logo mx-auto" />
+      <p class="vagmreach-brand-tagline">customer happiness is our happiness</p>
+    </div>
+    <h1 class="text-lg font-cinzel font-semibold text-gold-100 mb-1 text-center">Staff login</h1>
+    <p class="text-xs text-stone-500 text-center mb-4">Admin portal — use your staff mobile and password.</p>
+    <div class="flex gap-2 mb-3 text-xs justify-center">
+      <button type="button" id="admin-auth-tab-password" class="px-3 py-1 rounded bg-gold-500 text-royal-950 font-semibold">Password</button>
+      <button type="button" id="admin-auth-tab-otp" class="px-3 py-1 rounded bg-royal-950/80 text-stone-400 border border-gold-500/20">OTP</button>
+    </div>
+    <div id="admin-auth-password">
+      <input id="login-mobile" class="w-full border border-gold-500/30 bg-royal-950/50 rounded-lg p-2 mb-2 text-stone-200" placeholder="Mobile" value="9999999999" />
+      <input id="login-password" type="password" class="w-full border border-gold-500/30 bg-royal-950/50 rounded-lg p-2 mb-4 text-stone-200" placeholder="Password" value="admin123" />
+      <button id="login-btn" type="button" class="w-full bg-gold-500 text-royal-950 py-2.5 rounded-lg font-semibold hover:bg-gold-400">Login to admin</button>
+    </div>
+    <div id="admin-auth-otp" class="hidden space-y-2">
+      <input id="admin-otp-mobile" type="tel" class="w-full border border-gold-500/30 bg-royal-950/50 rounded-lg p-2 text-stone-200" placeholder="Mobile" value="9999999999" />
+      <button type="button" id="admin-otp-request" class="w-full py-2 border border-gold-500/30 rounded-lg text-xs text-stone-300">Send OTP</button>
+      <input id="admin-otp-code" class="w-full border border-gold-500/30 bg-royal-950/50 rounded-lg p-2 text-stone-200" placeholder="6-digit OTP" />
+      <button type="button" id="admin-otp-verify" class="w-full bg-gold-500 text-royal-950 py-2.5 rounded-lg font-semibold">Verify &amp; login</button>
+    </div>
+    <p id="login-error" class="text-red-400 text-sm mt-3 hidden text-center"></p>
+    <p class="text-[11px] text-stone-600 text-center mt-4">
+      <a href="/" class="text-gold-600 hover:text-gold-400 underline">← Back to customer storefront</a>
+    </p>
+  </div>
+
+  <div id="app" class="hidden">
+    <header class="site-header sticky top-0 z-40 border-b border-gold-500/20 shadow-lg">
+      <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
+        <div class="flex items-center gap-4 min-w-0">
+          <div class="flex flex-col min-w-0">
+            <img src="/assets/images/vagmreach-logo.svg" alt="VAGMREACH Admin" class="vagmreach-brand-logo" />
+            <p class="vagmreach-brand-tagline hidden sm:block">customer happiness is our happiness</p>
+          </div>
+          <span class="hidden sm:inline text-xs uppercase tracking-widest text-stone-500 border-l border-gold-500/20 pl-4">Staff portal</span>
+        </div>
+        <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+          <a href="/" class="text-xs text-stone-500 hover:text-gold-300 whitespace-nowrap">View shop</a>
+          <button type="button" id="header-login-btn" class="hidden text-xs text-gold-400 border border-gold-500/30 px-3 py-1 rounded-lg hover:bg-gold-500/10">Login</button>
+          <button id="logout-btn" type="button" class="text-sm text-stone-400 hover:text-gold-300">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto p-4 pb-12">
+      <nav class="flex gap-4 mb-6 text-sm">
+        <button data-tab="products" class="tab font-medium text-gold-400 border-b-2 border-gold-500 pb-1">Products</button>
+        <button data-tab="orders" class="tab text-stone-500 hover:text-gold-300 pb-1">Orders</button>
+      </nav>
+
+      <section id="tab-products">
+        <div class="grid lg:grid-cols-2 gap-6">
+          <form id="product-form" data-light-panel class="bg-cream-50/95 border border-gold-500/25 p-4 rounded-2xl shadow-xl space-y-3 text-stone-800">
+            <h2 id="product-form-title" class="font-cinzel font-semibold text-stone-900">Product details</h2>
+            <input name="title" class="w-full border border-cream-300 rounded-lg p-2 bg-white" placeholder="Title" required />
+            <input name="slug" class="w-full border border-cream-300 rounded-lg p-2 bg-white" placeholder="slug-kebab" required />
+            <input name="category" class="w-full border border-cream-300 rounded-lg p-2 bg-white" placeholder="Category" value="Necklace" />
+            <div class="grid grid-cols-2 gap-2">
+              <input name="price" type="number" class="border border-cream-300 rounded-lg p-2 bg-white" placeholder="Price (paise)" value="499900" />
+              <input name="originalPrice" type="number" class="border border-cream-300 rounded-lg p-2 bg-white" placeholder="Original" value="599900" />
+            </div>
+            <input name="weight" class="w-full border border-cream-300 rounded-lg p-2 bg-white" value="1g" />
+            <input name="stock" type="number" class="w-full border border-cream-300 rounded-lg p-2 bg-white" value="10" />
+            <input name="rating" type="number" step="0.1" class="w-full border border-cream-300 rounded-lg p-2 bg-white" value="4.9" />
+            <textarea name="imageSvg" class="w-full border border-cream-300 rounded-lg p-2 h-20 bg-white text-xs font-mono" placeholder="SVG fallback (optional if photos uploaded)"></textarea>
+
+            <div class="border-t border-cream-300 pt-3 space-y-2">
+              <h3 class="text-sm font-semibold text-stone-900">Photos &amp; video</h3>
+              <p class="text-xs text-stone-600">Upload multiple photos (JPEG/PNG/WebP, max 5MB each) and one product video (MP4/WebM, max 50MB). Save the product first, then upload.</p>
+              <label class="block text-xs font-medium text-stone-700">Photos</label>
+              <input id="media-photos" type="file" accept="image/jpeg,image/png,image/webp" multiple class="w-full text-xs" />
+              <label class="block text-xs font-medium text-stone-700 mt-2">Video (one per product)</label>
+              <input id="media-video" type="file" accept="video/mp4,video/webm" class="w-full text-xs" />
+              <button type="button" id="media-upload-btn" class="mt-2 w-full py-2 rounded-lg bg-stone-900 text-gold-400 text-sm font-medium disabled:opacity-50" disabled>Upload media to product</button>
+              <div id="media-list" class="space-y-2 mt-2"></div>
+              <p id="media-msg" class="text-xs text-emerald-700"></p>
+            </div>
+
+            <label class="flex items-center gap-2 text-sm text-stone-700"><input name="isActive" type="checkbox" checked /> Active on storefront</label>
+            <div class="flex gap-2 flex-wrap">
+              <button type="submit" id="product-submit-btn" class="bg-gold-500 text-royal-950 px-4 py-2 rounded-lg font-semibold hover:bg-gold-400">Save product</button>
+              <button type="button" id="product-cancel-edit" class="hidden border border-cream-400 px-4 py-2 rounded-lg text-sm">Cancel edit</button>
+            </div>
+            <p id="product-msg" class="text-sm text-emerald-800"></p>
+          </form>
+
+          <div data-light-panel class="bg-cream-50/95 border border-gold-500/25 p-4 rounded-2xl shadow-xl">
+            <h2 class="font-cinzel font-semibold text-stone-900 mb-3">Customer preview</h2>
+            <div id="product-preview"></div>
+            <div id="product-preview-gallery" class="mt-4"></div>
+          </div>
+        </div>
+        <div id="product-list" class="mt-6 grid gap-2"></div>
+      </section>
+
+      <section id="tab-orders" class="hidden">
+        <div class="grid lg:grid-cols-2 gap-4">
+          <div id="orders-list" class="space-y-2"></div>
+          <div id="order-detail-panel" data-light-panel class="bg-cream-50/95 border border-gold-500/25 p-4 rounded-2xl shadow text-sm min-h-[200px] text-stone-600">Select an order</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/assets/js/api-client.js"></script>
+  <script src="/assets/js/product-renderer.js"></script>
+  <script src="/admin/assets/js/admin.js"></script>
+</body>
+</html>

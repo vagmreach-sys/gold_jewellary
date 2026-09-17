@@ -1,0 +1,14 @@
+[
+  {
+    "mobile": "9999999999",
+    "password": "admin123",
+    "role": "ADMIN",
+    "name": "VAGMREACH Admin"
+  },
+  {
+    "mobile": "9888888888",
+    "password": "customer123",
+    "role": "CUSTOMER",
+    "name": "Demo Customer"
+  }
+]

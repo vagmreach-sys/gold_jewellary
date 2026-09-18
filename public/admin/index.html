@@ -16,7 +16,7 @@
             gold: { 400: '#D4AF37', 500: '#D4AF37', 600: '#B89225', 800: '#755815' },
             cream: { 50: '#FFFCF7', 100: '#F7F1E8', 200: '#EDE4D4', 300: '#E0D4C0' },
             regal: { 900: '#2C261E' },
-            royal: { 800: '#112A52', 900: '#0D2247', 950: '#040812' },
+            royal: { 800: '#721339', 900: '#5B0E2D', 950: '#2E0616' },
           },
           fontFamily: {
             cinzel: ['Cinzel', 'serif'],
@@ -27,14 +27,37 @@
     };
   </script>
   <style>
+    :root {
+      --vgm-text: #F5D061;
+      --vgm-gold: #D4AF37;
+    }
     body {
-      background-color: #0D2247;
+      background-color: #5B0E2D;
       background-image:
         radial-gradient(ellipse 120% 70% at 50% -15%, rgba(212, 175, 55, 0.12), transparent 55%),
-        linear-gradient(168deg, #163562 0%, #112a52 28%, #0D2247 55%, #040812 100%);
+        linear-gradient(168deg, #851742 0%, #721339 28%, #5B0E2D 55%, #2E0616 100%);
       background-attachment: fixed;
+      color: var(--vgm-text);
     }
-    .site-header { background-color: #0D2247; }
+    .site-header { background-color: #5B0E2D; }
+    #login-screen,
+    #app > header,
+    #app > main > nav,
+    #logout-btn,
+    .vagmreach-brand-tagline {
+      color: var(--vgm-text);
+    }
+    #app > main > nav .tab.text-gold-400,
+    #app > header a,
+    #app > header button,
+    #login-screen .text-gold-100,
+    #login-screen a.text-gold-600 {
+      color: var(--vgm-text) !important;
+    }
+    #login-screen a.text-gold-600:hover,
+    #app > header a:hover {
+      color: #fff !important;
+    }
     .vagmreach-brand-logo {
       display: block;
       height: 3rem;
@@ -47,16 +70,31 @@
       font-size: 0.625rem;
       line-height: 1.25;
       letter-spacing: 0.03em;
-      color: #d4af37;
+      color: #f5d061;
       font-weight: 500;
       margin: 0.35rem 0 0;
     }
     [data-light-panel] { color: #2c261e !important; }
-    [data-light-panel] * { color: inherit; }
+    [data-light-panel] input,
+    [data-light-panel] textarea,
+    [data-light-panel] label,
+    [data-light-panel] p,
+    [data-light-panel] h2,
+    [data-light-panel] h3,
+    [data-light-panel] button:not(.admin-ad-remove) {
+      color: inherit;
+    }
+    [data-light-panel] .admin-ad-remove {
+      color: #991b1b !important;
+    }
+    [data-light-panel] .text-emerald-800,
+    [data-light-panel] .admin-ad-msg {
+      color: #065f46 !important;
+    }
     .gold-card-glow:hover { box-shadow: 0 16px 40px -12px rgba(212, 175, 55, 0.45); }
   </style>
 </head>
-<body class="font-sans text-gold-400 antialiased min-h-screen">
+<body class="font-sans antialiased min-h-screen">
   <div id="login-screen" class="max-w-md mx-auto mt-10 sm:mt-16 p-6 sm:p-8 rounded-xl shadow-2xl border border-gold-500/25 bg-royal-900/90 mx-4">
     <div class="text-center mb-6">
       <img src="/assets/images/vagmreach-logo.svg" alt="VAGMREACH" class="vagmreach-brand-logo mx-auto" />
@@ -104,8 +142,9 @@
     </header>
 
     <main class="max-w-6xl mx-auto p-4 pb-12">
-      <nav class="flex gap-4 mb-6 text-sm">
-        <button data-tab="products" class="tab font-medium text-gold-400 border-b-2 border-gold-500 pb-1">Products</button>
+      <nav class="flex gap-4 mb-6 text-sm flex-wrap">
+        <button data-tab="products" class="tab font-medium text-[#F5D061] border-b-2 border-gold-500 pb-1">Products</button>
+        <button data-tab="ads" class="tab text-stone-500 hover:text-gold-300 pb-1">Hero ads</button>
         <button data-tab="orders" class="tab text-stone-500 hover:text-gold-300 pb-1">Orders</button>
       </nav>
 
@@ -152,6 +191,35 @@
           </div>
         </div>
         <div id="product-list" class="mt-6 grid gap-2"></div>
+      </section>
+
+      <section id="tab-ads" class="hidden">
+        <div data-light-panel class="bg-cream-50/95 border border-gold-500/25 p-4 sm:p-6 rounded-2xl shadow-xl max-w-3xl text-stone-800">
+          <h2 class="font-cinzel font-semibold text-stone-900 text-lg mb-1">Collections hero advertisement</h2>
+          <p class="text-xs text-stone-600 mb-6">
+            One promotion appears beside "Featured 1 Gram Gold Creations" on the customer site. JPEG, PNG, or WebP, max 3MB. Optional link opens in a new tab.
+          </p>
+          <div id="admin-ad-slots" class="max-w-md">
+            <div class="border border-cream-300 rounded-xl p-4 space-y-3" data-ad-slot="1">
+              <h3 class="text-sm font-semibold text-stone-900">Hero ad</h3>
+              <div class="admin-ad-preview aspect-[4/3] rounded-lg border border-dashed border-cream-400 bg-cream-100/80 flex items-center justify-center text-xs text-stone-500 overflow-hidden">No image</div>
+              <input type="file" accept="image/jpeg,image/png,image/webp" class="admin-ad-file w-full text-xs" />
+              <input type="text" class="admin-ad-title w-full border border-cream-300 rounded-lg p-2 text-xs bg-white" placeholder="Image alt text (optional)" />
+              <p class="text-[11px] font-semibold text-stone-700 pt-1">Offer &amp; price (shown on customer site)</p>
+              <input type="text" class="admin-ad-offer w-full border border-cream-300 rounded-lg p-2 text-xs bg-white" placeholder="Offer e.g. 20% OFF · Buy 2 Get 1" />
+              <input type="text" class="admin-ad-price w-full border border-cream-300 rounded-lg p-2 text-xs bg-white" placeholder="Price e.g. ₹4,999" />
+              <textarea class="admin-ad-description w-full border border-cream-300 rounded-lg p-2 text-xs bg-white h-16 resize-y" placeholder="Short description (optional)"></textarea>
+              <input type="url" class="admin-ad-link w-full border border-cream-300 rounded-lg p-2 text-xs bg-white" placeholder="Click URL (optional)" />
+              <label class="flex items-center gap-2 text-xs"><input type="checkbox" class="admin-ad-active" checked /> Show on storefront</label>
+              <div class="flex gap-2 flex-wrap">
+                <button type="button" class="admin-ad-upload px-3 py-1.5 rounded-lg bg-gold-500 text-royal-950 text-xs font-semibold">Upload / replace</button>
+                <button type="button" class="admin-ad-save-text px-3 py-1.5 rounded-lg border border-cream-400 text-xs font-medium">Save text only</button>
+                <button type="button" class="admin-ad-remove px-3 py-1.5 rounded-lg border border-red-300 text-red-800 text-xs">Remove</button>
+              </div>
+              <p class="admin-ad-msg text-xs text-emerald-800 min-h-[1rem]"></p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="tab-orders" class="hidden">

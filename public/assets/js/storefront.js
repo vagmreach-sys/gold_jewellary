@@ -1141,6 +1141,53 @@ function initSiteHeaderScroll() {
   update();
 }
 
+function renderHeroAdCaption(ad) {
+  const hasOffer = Boolean(ad.offerText);
+  const hasPrice = Boolean(ad.priceText);
+  const hasDesc = Boolean(ad.description);
+  if (!hasOffer && !hasPrice && !hasDesc) return "";
+
+  let row = "";
+  if (hasOffer || hasPrice) {
+    row = '<div class="hero-ad-price-row">';
+    if (hasOffer) row += `<span class="hero-ad-offer">${escapeHtmlAttr(ad.offerText)}</span>`;
+    if (hasPrice) row += `<span class="hero-ad-price">${escapeHtmlAttr(ad.priceText)}</span>`;
+    row += "</div>";
+  }
+  const desc = hasDesc ? `<p class="hero-ad-desc">${escapeHtmlAttr(ad.description)}</p>` : "";
+  return `<div class="hero-ad-caption">${row}${desc}</div>`;
+}
+
+function renderHeroAdSlot(ad) {
+  const alt = escapeHtmlAttr(ad.title || "Promotion");
+  const img = `<img src="${escapeHtmlAttr(ad.imageUrl)}" alt="${alt}" loading="lazy" decoding="async" />`;
+  const caption = renderHeroAdCaption(ad);
+  const mediaInner = `<div class="hero-ad-slot">${img}</div>${caption}`;
+  if (ad.linkUrl) {
+    const href = escapeHtmlAttr(ad.linkUrl);
+    return `<a href="${href}" class="hero-ad-card block no-underline text-inherit" target="_blank" rel="noopener noreferrer sponsored">${mediaInner}</a>`;
+  }
+  return `<div class="hero-ad-card">${mediaInner}</div>`;
+}
+
+async function loadHeroAds() {
+  const strip = document.getElementById("hero-ad-strip");
+  if (!strip) return;
+  try {
+    const data = await VagmreachAPI.getStorefrontAds();
+    const ads = (data.ads || []).filter((a) => a.isActive && a.slot === 1).slice(0, 1);
+    if (!ads.length) {
+      strip.classList.add("hidden");
+      strip.innerHTML = "";
+      return;
+    }
+    strip.innerHTML = ads.map(renderHeroAdSlot).join("");
+    strip.classList.remove("hidden");
+  } catch {
+    strip.classList.add("hidden");
+  }
+}
+
 function initMobileNavResize() {
   const mq = window.matchMedia("(min-width: 768px)");
   const onChange = () => {
@@ -1156,6 +1203,7 @@ window.onload = async function () {
     PRODUCTS = await VagmreachAPI.getProducts();
     PRODUCTS.forEach((p) => VagmreachAPI.recordProductView(p.id));
     renderProducts();
+    loadHeroAds();
     await syncCartFromApi();
     refreshLiveShoppers();
     setInterval(refreshLiveShoppers, 4000);

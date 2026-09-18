@@ -31,6 +31,7 @@ async function completeAdminLogin(res) {
   refreshPreview();
   await loadProducts();
   await loadOrders();
+  await loadAdminAds();
 }
 
 function draftFromForm() {
@@ -404,16 +405,150 @@ document.getElementById("logout-btn").addEventListener("click", async () => {
   showLogin();
 });
 
+const HERO_AD_SLOT = 1;
+let currentHeroAd = null;
+
+function adSlotPanel() {
+  return document.querySelector(`#admin-ad-slots [data-ad-slot="${HERO_AD_SLOT}"]`);
+}
+
+function readAdTextFields(panel) {
+  return {
+    title: panel.querySelector(".admin-ad-title")?.value?.trim() || "",
+    priceText: panel.querySelector(".admin-ad-price")?.value?.trim() || "",
+    offerText: panel.querySelector(".admin-ad-offer")?.value?.trim() || "",
+    description: panel.querySelector(".admin-ad-description")?.value?.trim() || "",
+    linkUrl: panel.querySelector(".admin-ad-link")?.value?.trim() || "",
+    isActive: panel.querySelector(".admin-ad-active")?.checked ?? true,
+  };
+}
+
+function renderAdminAdSlot(ad) {
+  const panel = adSlotPanel();
+  if (!panel) return;
+  const preview = panel.querySelector(".admin-ad-preview");
+  const titleEl = panel.querySelector(".admin-ad-title");
+  const priceEl = panel.querySelector(".admin-ad-price");
+  const offerEl = panel.querySelector(".admin-ad-offer");
+  const descEl = panel.querySelector(".admin-ad-description");
+  const linkEl = panel.querySelector(".admin-ad-link");
+  const activeEl = panel.querySelector(".admin-ad-active");
+  if (ad) {
+    preview.innerHTML = `<img src="${ad.imageUrl}" alt="" class="w-full h-full object-cover" />`;
+    titleEl.value = ad.title || "";
+    priceEl.value = ad.priceText || "";
+    offerEl.value = ad.offerText || "";
+    descEl.value = ad.description || "";
+    linkEl.value = ad.linkUrl || "";
+    activeEl.checked = ad.isActive !== false;
+  } else {
+    preview.innerHTML = "";
+    preview.textContent = "No image";
+    titleEl.value = "";
+    priceEl.value = "";
+    offerEl.value = "";
+    descEl.value = "";
+    linkEl.value = "";
+    activeEl.checked = true;
+  }
+}
+
+async function loadAdminAds() {
+  try {
+    const data = await VagmreachAPI.adminListAds();
+    currentHeroAd = (data.ads || []).find((a) => a.slot === HERO_AD_SLOT) || null;
+    renderAdminAdSlot(currentHeroAd);
+  } catch {
+    /* ignore until logged in */
+  }
+}
+
+function wireAdminAdSlot() {
+  const panel = adSlotPanel();
+  if (!panel) return;
+  const msg = panel.querySelector(".admin-ad-msg");
+
+  panel.querySelector(".admin-ad-upload")?.addEventListener("click", async () => {
+    const fileInput = panel.querySelector(".admin-ad-file");
+    const file = fileInput?.files?.[0];
+    if (!file) {
+      if (msg) msg.textContent = "Choose an image first.";
+      return;
+    }
+    const fields = readAdTextFields(panel);
+    const formData = new FormData();
+    formData.append("image", file);
+    formData.append("title", fields.title);
+    formData.append("priceText", fields.priceText);
+    formData.append("offerText", fields.offerText);
+    formData.append("description", fields.description);
+    formData.append("linkUrl", fields.linkUrl);
+    formData.append("isActive", fields.isActive ? "true" : "false");
+    try {
+      const res = await VagmreachAPI.adminUploadAd(HERO_AD_SLOT, formData);
+      currentHeroAd = res.ad;
+      renderAdminAdSlot(currentHeroAd);
+      fileInput.value = "";
+      if (msg) msg.textContent = "Saved. Refresh the shop to see it.";
+    } catch (e) {
+      if (msg) msg.textContent = e.message;
+    }
+  });
+
+  panel.querySelector(".admin-ad-save-text")?.addEventListener("click", async () => {
+    if (!currentHeroAd) {
+      if (msg) msg.textContent = "Upload an image first, or use Upload / replace.";
+      return;
+    }
+    const fields = readAdTextFields(panel);
+    try {
+      const res = await VagmreachAPI.adminUpdateAd(HERO_AD_SLOT, {
+        title: fields.title || null,
+        priceText: fields.priceText || null,
+        offerText: fields.offerText || null,
+        description: fields.description || null,
+        linkUrl: fields.linkUrl || null,
+        isActive: fields.isActive,
+      });
+      currentHeroAd = res.ad;
+      renderAdminAdSlot(currentHeroAd);
+      if (msg) msg.textContent = "Text saved. Refresh the shop to see changes.";
+    } catch (e) {
+      if (msg) msg.textContent = e.message;
+    }
+  });
+
+  panel.querySelector(".admin-ad-remove")?.addEventListener("click", async () => {
+    if (!currentHeroAd) {
+      if (msg) msg.textContent = "Nothing to remove.";
+      return;
+    }
+    if (!confirm("Remove the hero ad?")) return;
+    try {
+      await VagmreachAPI.adminDeleteAd(HERO_AD_SLOT);
+      currentHeroAd = null;
+      renderAdminAdSlot(null);
+      if (msg) msg.textContent = "Removed.";
+    } catch (e) {
+      if (msg) msg.textContent = e.message;
+    }
+  });
+}
+
+wireAdminAdSlot();
+
 document.querySelectorAll(".tab").forEach((btn) => {
   btn.addEventListener("click", () => {
     document.querySelectorAll(".tab").forEach((b) => {
-      b.classList.remove("text-gold-400", "font-medium", "border-gold-500");
+      b.classList.remove("text-[#F5D061]", "font-medium", "border-gold-500");
       b.classList.add("text-stone-500");
     });
-    btn.classList.add("text-gold-400", "font-medium", "border-b-2", "border-gold-500");
+    btn.classList.add("text-[#F5D061]", "font-medium", "border-b-2", "border-gold-500");
     btn.classList.remove("text-stone-500");
     document.getElementById("tab-products").classList.toggle("hidden", btn.dataset.tab !== "products");
+    document.getElementById("tab-ads").classList.toggle("hidden", btn.dataset.tab !== "ads");
     document.getElementById("tab-orders").classList.toggle("hidden", btn.dataset.tab !== "orders");
+    if (btn.dataset.tab === "ads") loadAdminAds();
   });
 });
 

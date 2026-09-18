@@ -25,6 +25,9 @@ window.VagmreachAPI = {
     const qs = new URLSearchParams(params).toString();
     return apiFetch(`/products${qs ? `?${qs}` : ""}`);
   },
+  getStorefrontAds() {
+    return apiFetch("/storefront/ads");
+  },
   getProduct(id) {
     return apiFetch(`/products/${id}`);
   },
@@ -199,6 +202,32 @@ window.VagmreachAPI = {
   },
   adminDeleteProductMedia(productId, mediaId) {
     return apiFetch(`/admin/products/${productId}/media/${mediaId}`, { method: "DELETE" });
+  },
+  adminListAds() {
+    return apiFetch("/admin/ads");
+  },
+  async adminUploadAd(slot, formData) {
+    const res = await fetch(`${window.API_BASE}/api/v1/admin/ads/${slot}`, {
+      method: "POST",
+      credentials: "include",
+      body: formData,
+    });
+    const json = await res.json();
+    if (!json.success) {
+      const err = json.error;
+      const msg = typeof err === "object" ? err.message || err.code : err;
+      throw new Error(msg || "Upload failed");
+    }
+    return json.data;
+  },
+  adminUpdateAd(slot, payload) {
+    return apiFetch(`/admin/ads/${slot}`, {
+      method: "PATCH",
+      body: JSON.stringify(payload),
+    });
+  },
+  adminDeleteAd(slot) {
+    return apiFetch(`/admin/ads/${slot}`, { method: "DELETE" });
   },
   adminListOrders() {
     return apiFetch("/admin/orders");

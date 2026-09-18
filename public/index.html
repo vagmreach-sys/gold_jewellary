@@ -46,11 +46,11 @@
               600: '#7A6F62'
             },
             royal: {
-              950: '#040812',
-              900: '#0D2247',
-              800: '#112A52',
-              700: '#163562',
-              600: '#1A3F72',
+              950: '#2E0616',
+              900: '#5B0E2D',
+              800: '#721339',
+              700: '#851742',
+              600: '#9C1B4E',
             }
           },
           fontFamily: {
@@ -75,12 +75,12 @@
       box-shadow: 0 16px 40px -12px rgba(212, 175, 55, 0.45);
     }
     body {
-      background-color: #0D2247;
+      background-color: #5B0E2D;
       background-image:
         radial-gradient(ellipse 120% 70% at 50% -15%, rgba(212, 175, 55, 0.12), transparent 55%),
-        radial-gradient(ellipse 55% 45% at 100% 40%, rgba(22, 48, 82, 0.35), transparent),
-        radial-gradient(ellipse 45% 40% at 0% 80%, rgba(13, 34, 71, 0.45), transparent),
-        linear-gradient(168deg, #163562 0%, #112a52 28%, #0D2247 55%, #040812 100%);
+        radial-gradient(ellipse 55% 45% at 100% 40%, rgba(114, 19, 57, 0.35), transparent),
+        radial-gradient(ellipse 45% 40% at 0% 80%, rgba(91, 14, 45, 0.45), transparent),
+        linear-gradient(168deg, #851742 0%, #721339 28%, #5B0E2D 55%, #2E0616 100%);
       background-attachment: fixed;
     }
     @keyframes pulse-subtle {
@@ -95,7 +95,7 @@
       width: 6px;
     }
     ::-webkit-scrollbar-track {
-      background: #0D2247;
+      background: #5B0E2D;
     }
     ::-webkit-scrollbar-thumb {
       background: #755815;
@@ -106,19 +106,20 @@
     }
     :root {
       --vgm-gold: #D4AF37;
+      --vgm-text: #F5D061;
     }
-    /* Dark storefront: letters & icons use royal gold (#D4AF37) */
+    /* Dark storefront: primary copy uses warm gold cream (#F5D061) */
     body.vgm-gold-ui {
-      color: var(--vgm-gold);
+      color: var(--vgm-text);
     }
     body.vgm-gold-ui svg {
-      color: var(--vgm-gold);
+      color: var(--vgm-text);
     }
     body.vgm-gold-ui :not([data-light-panel]):not([data-light-panel] *) {
-      color: var(--vgm-gold) !important;
+      color: var(--vgm-text) !important;
     }
     body.vgm-gold-ui :not([data-light-panel]):not([data-light-panel] *) svg {
-      color: var(--vgm-gold) !important;
+      color: var(--vgm-text) !important;
       stroke: currentColor;
     }
     body.vgm-gold-ui .gold-gradient-text {
@@ -126,12 +127,32 @@
       -webkit-text-fill-color: transparent;
     }
     body.vgm-gold-ui #category-filters .filter-btn.active {
-      color: #0D2247 !important;
+      color: #5B0E2D !important;
       background-color: #D4AF37 !important;
       border-color: #D4AF37 !important;
     }
     body.vgm-gold-ui #cart-counter {
-      color: #0D2247 !important;
+      color: #5B0E2D !important;
+    }
+    /* Hero promos: override global gold text so offer/price/description stay readable */
+    body.vgm-gold-ui #hero-ad-strip .hero-ad-offer {
+      color: #5B0E2D !important;
+      -webkit-text-fill-color: #5B0E2D !important;
+      background: #FFFCF7 !important;
+      border: 1px solid #947219;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    body.vgm-gold-ui #hero-ad-strip .hero-ad-price {
+      color: #F5D061 !important;
+      -webkit-text-fill-color: #F5D061 !important;
+    }
+    body.vgm-gold-ui #hero-ad-strip .hero-ad-desc {
+      color: rgba(245, 208, 97, 0.88) !important;
+      -webkit-text-fill-color: rgba(245, 208, 97, 0.88) !important;
+    }
+    body.vgm-gold-ui #hero-ad-strip a.hero-ad-card:hover .hero-ad-offer {
+      color: #5B0E2D !important;
+      -webkit-text-fill-color: #5B0E2D !important;
     }
     [data-light-panel] {
       color: #44403c;
@@ -144,18 +165,18 @@
       color: #5c4413 !important;
     }
     .site-header {
-      background-color: #0D2247;
+      background-color: #5B0E2D;
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
       transition: box-shadow 0.2s ease, border-color 0.2s ease;
     }
     .site-header.is-scrolled {
-      background-color: #0D2247;
+      background-color: #5B0E2D;
       box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
       border-bottom-color: rgba(212, 175, 55, 0.35);
     }
     .site-top-bar {
-      background-color: #0D2247;
+      background-color: #5B0E2D;
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
     }
@@ -166,7 +187,7 @@
       max-width: min(220px, 58vw);
       object-fit: contain;
       object-position: left center;
-      /* Transparent asset on #0D2247 — gold glow only, no blend wash-out */
+      /* Transparent asset on #5B0E2D — gold glow only, no blend wash-out */
       filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5))
         drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
     }
@@ -185,10 +206,78 @@
       font-size: 0.625rem;
       line-height: 1.25;
       letter-spacing: 0.03em;
-      color: #d4af37;
+      color: #f5d061;
       font-weight: 500;
       margin: 0.15rem 0 0;
       text-align: left;
+    }
+    .hero-ad-slot {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      background: rgba(91, 14, 45, 0.65);
+      aspect-ratio: 4 / 3;
+      max-height: min(28vw, 200px);
+      box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.45);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    a.hero-ad-card:hover {
+      opacity: 0.95;
+    }
+    a.hero-ad-card:hover .hero-ad-slot {
+      border-color: rgba(212, 175, 55, 0.65);
+      box-shadow: 0 16px 40px -8px rgba(212, 175, 55, 0.25);
+    }
+    .hero-ad-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-ad-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      min-width: 0;
+    }
+    .hero-ad-caption {
+      padding: 0 0.15rem;
+    }
+    .hero-ad-price-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .hero-ad-offer {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.35;
+      color: #5b0e2d;
+      background: #fffcf7;
+      border: 1px solid #947219;
+      padding: 0.35rem 0.65rem;
+      border-radius: 9999px;
+      max-width: 100%;
+      word-break: break-word;
+    }
+    .hero-ad-price {
+      font-family: Cinzel, serif;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #f5d061;
+      line-height: 1.2;
+    }
+    .hero-ad-desc {
+      font-size: 0.75rem;
+      line-height: 1.45;
+      color: rgba(245, 208, 97, 0.88);
+      margin: 0.25rem 0 0;
     }
     .vagmreach-brand-logo-wrap--stack {
       flex-direction: column;
@@ -240,7 +329,7 @@
     }
     .mobile-nav-link:hover,
     .mobile-nav-link:focus-visible {
-      color: #d4af37;
+      color: #f5d061;
     }
     .mobile-nav-auth {
       padding-top: 0.5rem;
@@ -296,7 +385,7 @@
   </style>
 </head>
 
-<body class="vgm-gold-ui text-gold-500 font-sans antialiased selection:bg-gold-500 selection:text-royal-950">
+<body class="vgm-gold-ui font-sans antialiased selection:bg-gold-500 selection:text-royal-950">
 
   <!-- Top Concurrency & Security Status Bar -->
   <div class="site-top-bar bg-royal-900 border-b border-gold-500/20 py-2 px-4 text-xs">
@@ -337,7 +426,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between gap-2 min-h-[4.75rem] py-2 md:h-20 md:py-0">
       
-      <!-- Brand Logo — transparent gold mark on #0D2247 header -->
+      <!-- Brand Logo — transparent gold mark on #5B0E2D header -->
       <div class="vagmreach-brand-logo-wrap vagmreach-brand-logo-wrap--stack flex cursor-pointer shrink-0 min-w-0 max-w-[58vw] sm:max-w-none" onclick="window.scrollTo({top:0, behavior:'smooth'})">
         <img
           src="/assets/images/vagmreach-logo.svg"
@@ -416,13 +505,16 @@
 
   <!-- Product Catalog Section -->
   <section id="collections" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 border-b border-gold-500/20 pb-8">
-      <div>
-        <span class="text-gold-400 text-xs tracking-widest uppercase font-bold">Heirloom Quality Selection</span>
-        <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-gold-50 mt-1">Featured 1 Gram Gold Creations</h2>
-        <p class="text-stone-300 text-sm mt-2 max-w-xl">
-          Crafted with 1000mg gold deposit micro-fusion technology. Non-allergic, anti-tarnish, and durable for weddings, festivals, and daily elegance.
-        </p>
+    <div class="mb-12 border-b border-gold-500/20 pb-8 space-y-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <div class="lg:col-span-5">
+          <span class="text-gold-400 text-xs tracking-widest uppercase font-bold">Heirloom Quality Selection</span>
+          <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-gold-50 mt-1">Featured 1 Gram Gold Creations</h2>
+          <p class="text-stone-300 text-sm mt-2 max-w-xl">
+            Crafted with 1000mg gold deposit micro-fusion technology. Non-allergic, anti-tarnish, and durable for weddings, festivals, and daily elegance.
+          </p>
+        </div>
+        <div id="hero-ad-strip" class="hidden lg:col-span-7 w-full max-w-md lg:max-w-sm xl:max-w-md" aria-label="Promotion"></div>
       </div>
 
       <!-- Category Filter Pills -->
@@ -1126,9 +1218,9 @@
   </div>
 
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-  <script src="/assets/js/api-client.js?v=20260316f"></script>
-  <script src="/assets/js/product-renderer.js?v=20260316f"></script>
-  <script src="/assets/js/storefront.js?v=20260316f"></script>
+  <script src="/assets/js/api-client.js?v=20260317c"></script>
+  <script src="/assets/js/product-renderer.js?v=20260317c"></script>
+  <script src="/assets/js/storefront.js?v=20260317d"></script>
 
 
 </body>
